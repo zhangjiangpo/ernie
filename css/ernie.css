@@ -1,0 +1,78 @@
+div,span,p{
+    font-size:16px;
+}
+.container{
+    margin:50px auto;
+    width:140px;
+    height:140px;
+    position: relative;
+}
+.clock-con{
+    width:100%;
+    height:100%;
+    border-radius: 140px;
+    border:1px solid #ccc;
+}
+.cl{
+    position: absolute;
+    display: block;
+    width:20px;
+    height:20px;
+    text-align: center;
+    line-height: 20px;
+}
+.cl-12{
+    left:60px;
+    top:0px;
+}
+.cl-3{
+    left:120px;
+    top:60px;
+}
+.cl-6{
+    left:60px;
+    top:120px;
+}
+.cl-9{
+    left:0;
+    top:60px;
+}
+.clock-zz{
+    width:70px;
+    border-right:1px solid;
+    -webkit-transform-origin:right bottom;
+    position: absolute;
+    left:0;
+}
+.clock-ss{
+    height:45px;
+    top:25px;
+}
+.clock-tt{
+    height:40px;
+    top:30px;
+}
+.clock-hh{
+    height:35px;
+    top:35px;
+}
+.rotate-ernie{
+     animation: ernie 0.8s linear infinite;
+     -webkit-animation: ernie 0.8s linear infinite;
+}
+.rotate-ernieStop{
+    animation: ernie 2s ease-out infinite;
+    -webkit-animation: ernie 2s ease-out infinite;
+}
+@keyframes ernie {
+    0% {transform:rotate(0deg);}
+    100% {transform:rotate(360deg);}
+}
+@-webkit-keyframes ernie {
+    0% {-webkit-transform:rotate(0deg);}
+    100% {-webkit-transform:rotate(360deg);}
+}
+.transition{
+    transition:all 1s ease-out;
+    -webkit-transition:all 1s ease-out;
+}

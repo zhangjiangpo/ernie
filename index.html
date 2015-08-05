@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <title></title>
+    <link href="css/restyle.css" rel="stylesheet" />
+    <link href="css/ernie.css" rel="stylesheet" />
+    <script src="js/zepto.min.js"></script>
+    <script src="js/css-animations.js"></script>
+    <script src="js/ernie.js"></script>
+</head>
+<body>
+    <section class="container">
+        <div class="clock-con">
+            <span class="cl cl-12">12</span>
+            <span class="cl cl-3">3</span>
+            <span class="cl cl-6">6</span>
+            <span class="cl cl-9">9</span>
+            <div id="second" class="clock-zz clock-ss"></div>
+            <div id="fz" class="clock-zz clock-tt"></div>
+            <div id="hour" class="clock-zz clock-hh"></div>
+        </div>
+    </section>
+    <section class="container">
+        <div class="clock-con">
+            <span class="cl cl-12">12</span>
+            <span class="cl cl-3">3</span>
+            <span class="cl cl-6">6</span>
+            <span class="cl cl-9">9</span>
+            <div id="second2" class="clock-zz clock-ss"></div>
+        </div>
+        <a href="javascript:choujiang();">继续抽奖</a>
+    </section>
+<script>
+    $('#second').ernie({
+        autoStart:true,
+        clockDemo:true,
+        hourId:'#hour',
+        minuteId:'#fz'
+    });
+    var ernieFlag=true;//防止多次点击抽奖
+    $('#second2').ernie({
+        ernieComplete: function () {//抽奖完成回调事件
+            ernieFlag=true;
+        }
+    });
+    function choujiang(){
+        if(ernieFlag){
+            ernieFlag=false;
+            $('#second2').ernie.start();
+            setTimeout(function () {
+                var rotate=Math.floor(Math.random()*360);
+                $('#second2').ernie.stop(rotate);
+            },3000)
+        }
+    }
+</script>
+</body>
+</html>
