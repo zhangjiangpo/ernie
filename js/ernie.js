@@ -41,6 +41,12 @@
                     _this.rotate($(_this.setting.hourId),hh/12*360+mm/2);
                 },1000);
             }else{//摇奖模式
+                var sogouInter;
+                if(navigator.userAgent.toLowerCase().indexOf('sogoumse')>0){//sogou浏览器下出发重绘 不然不转动 至于怎么不让用户感觉到自己想办法把。。。呵呵
+                    sogouInter=setInterval(function () {
+                        _this.$this.toggleClass('ernie-reflow');
+                    },1)
+                }
                 _this.$this.addClass('rotate-ernie');//开始旋转
                 var stopInter=setInterval(function () {//不断检测stopRotate值，当不为-1时，停止旋转
                     if(_this.stopRotate!=-1){
@@ -67,6 +73,7 @@
                             _this.$this.attr('style','');
                             console.log(_this.stopRotate);
                             _this.$this.css({'transform':'rotate('+_this.stopRotate+'deg)','-webkit-transform':'rotate('+_this.stopRotate+'deg)'})
+                            if(sogouInter){clearInterval(sogouInter);}
                             _this.stopRotate=-1;
                             _this.setting.ernieComplete();
                         },2000);

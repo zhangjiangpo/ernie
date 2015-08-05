@@ -76,3 +76,6 @@ div,span,p{
     transition:all 1s ease-out;
     -webkit-transition:all 1s ease-out;
 }
+.ernie-reflow{
+    background-color: #f1f2f3;
+}
